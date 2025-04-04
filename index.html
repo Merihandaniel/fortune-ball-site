@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Magic Fortune Ball</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: #f3f3f3;
+    }
+    .ball {
+      font-size: 6rem;
+      margin-bottom: 1rem;
+    }
+    .fortune {
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-align: center;
+      max-width: 300px;
+    }
+  </style>
+</head>
+<body>
+  <div class="ball">🎱</div>
+  <div class="fortune" id="fortune"></div>
+
+  <script>
+    const fortunes = [
+      "Success is near.",
+      "You will find what you seek.",
+      "Try again later.",
+      "A surprise is waiting.",
+      "Believe in your magic.",
+      "Something good is coming.",
+      "Take the leap.",
+      "Your instincts are right."
+    ];
+
+    const fortune = fortunes[Math.floor(Math.random() * fortunes.length)];
+    document.getElementById("fortune").textContent = fortune;
+  </script>
+</body>
+</html>
