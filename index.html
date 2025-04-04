@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Magic Fortune Ball</title>
+  <title>Magic Fortune Wizard</title>
   <style>
     body {
       font-family: sans-serif;
@@ -14,36 +14,82 @@
       height: 100vh;
       background: #f3f3f3;
     }
-    .ball {
-      font-size: 6rem;
-      margin-bottom: 1rem;
+
+    .ball img {
+      transition: all 0.3s ease;
+      filter: drop-shadow(0 0 5px #aaa);
     }
+
+    .ball img:hover {
+      filter: drop-shadow(0 0 10px #6a0dad);
+      transform: scale(1.05);
+    }
+
     .fortune {
       font-size: 1.5rem;
       font-weight: bold;
       text-align: center;
       max-width: 300px;
+      border-right: 2px solid;
+      white-space: nowrap;
+      overflow: hidden;
+      animation: typing 3s steps(40, end), blink 0.75s step-end infinite;
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent }
     }
   </style>
 </head>
 <body>
-  <div class="ball">🔮</div>
+  <div class="ball">
+    <img src="wizard.png" alt="Wizard" width="150" />
+  </div>
   <div class="fortune" id="fortune"></div>
 
   <script>
-    const fortunes = [
-      "Success is near.",
-      "You will find what you seek.",
-      "Try again later.",
-      "A surprise is waiting.",
-      "Believe in your magic.",
-      "Something good is coming.",
-      "Take the leap.",
-      "Your instincts are right."
+    const starts = [
+      "You will soon",
+      "Prepare to",
+      "Expect to",
+      "Don't be afraid to",
+      "Someone will",
+      "The time is right to",
+      "Embrace your chance to",
+      "You are about to"
     ];
 
-    const fortune = fortunes[Math.floor(Math.random() * fortunes.length)];
-    document.getElementById("fortune").textContent = fortune;
+    const actions = [
+      "discover something new.",
+      "receive unexpected news.",
+      "meet someone influential.",
+      "make a bold decision.",
+      "start a new chapter.",
+      "change your perspective.",
+      "find clarity.",
+      "unlock your potential."
+    ];
+
+    const endings = [
+      " Trust yourself.",
+      " Stay open-minded.",
+      " Follow your intuition.",
+      " This is just the beginning.",
+      " Let go of fear.",
+      " Take one step at a time."
+    ];
+
+    const fullFortune =
+      `${starts[Math.floor(Math.random() * starts.length)]} ` +
+      `${actions[Math.floor(Math.random() * actions.length)]}` +
+      `${endings[Math.floor(Math.random() * endings.length)]}`;
+
+    document.getElementById("fortune").textContent = fullFortune;
   </script>
 </body>
 </html>
