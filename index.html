@@ -19,8 +19,9 @@
     }
 
     .ball img {
-      transition: all 0.3s ease;
-      filter: drop-shadow(0 0 5px #aaa);
+      filter: drop-shadow(0 0 10px #6a0dad);
+      animation: pulseGlow 2s infinite sease-in-out;
+      transform: scale(1.05);
     }
 
     .ball img:hover {
@@ -45,10 +46,16 @@
       from { width: 0 }
       to { width: 100% }
     }
-
-    /*@keyframes blink {
-      50% { border-color: transparent }
-    }*/
+    
+    @keyframes pulseGlow {
+      0%, 100% {
+        filter: drop-shadow(0 0 8px #6a0dad);
+      }
+      50% {
+        filter: drop-shadow(0 0 20px #6a0dad);
+      }
+    }
+    
   </style>
 </head>
 <body>
