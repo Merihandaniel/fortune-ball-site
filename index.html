@@ -24,35 +24,31 @@
       transform: scale(1.05);
     }
 
-    .ball img:hover {
-      filter: drop-shadow(0 0 10px #6a0dad);
-      transform: scale(1.05)
-      transition: all 0.3s ease;
-    }
-
     .fortune {
       font-size: 1.5rem;
       font-weight: bold;
       text-align: center;
-      white-space: nowrap;
-      overflow: hidden;
-      /*border-right: 2px solid #000;*/
       margin-top: 1rem;
-      box-sizing: border-box;
-      display: inline-block;
-    }
-    .fortune span{
-      display: inline-block;
-      border-right: 2px solid #000;
-      animation: typing 4s steps(40, end);
-      white-space: nowrap;
+      max-width: 90vw;
       overflow: hidden;
     }
+
+    .fortune span {
+      display: inline-block;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 2px solid #000;
+    }
+
     @keyframes typing {
       from { width: 0 }
       to { width: 100% }
     }
-    
+
+    @keyframes blink {
+      50% { border-color: transparent }
+    }
+
     @keyframes pulseGlow {
       0%, 100% {
         filter: drop-shadow(0 0 8px #6a0dad);
@@ -61,14 +57,13 @@
         filter: drop-shadow(0 0 20px #6a0dad);
       }
     }
-    
   </style>
 </head>
 <body>
   <div class="ball">
     <img src="wizard.jpeg" alt="Wizard" width="150" />
   </div>
-  <div class="fortune" id="fortune"></span></div>
+  <div class="fortune"><span id="fortune"></span></div>
 
   <script>
     const starts = [
@@ -107,19 +102,20 @@
       `${actions[Math.floor(Math.random() * actions.length)]}. ` +
       `${endings[Math.floor(Math.random() * endings.length)]}`;
 
-    const fortuneEl = document.getElementById("fortune");
-    fortuneEl.textContent = fullFortune;
-    
+    const fortuneSpan = document.getElementById("fortune");
+    fortuneSpan.textContent = fullFortune;
+
     const charCount = fullFortune.length;
-    fortuneEl.style.width = `${charCount}ch`;
-    fortuneEl.style.animation = `typing 6s steps(${charCount}, end)`;
+    fortuneSpan.style.width = `${charCount}ch`;
+    fortuneSpan.style.animation = `typing 5s steps(${charCount}, end), blink 0.75s step-end infinite`;
+
 
     setTimeout(() => {
-      fortuneEl.style.whiteSpace = "normal";
-      fortuneEl.style.borderRight = "none";
-      fortuneEl.style.width = "auto";
-      fortuneEl.style.animation = "none";
-    }, 3000); 
+      fortuneSpan.style.whiteSpace = "normal";
+      fortuneSpan.style.borderRight = "none";
+      fortuneSpan.style.width = "auto";
+      fortuneSpan.style.animation = "none";
+    }, 5000); 
   </script>
 </body>
 </html>
