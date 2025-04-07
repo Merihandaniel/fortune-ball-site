@@ -41,7 +41,13 @@
       box-sizing: border-box;
       display: inline-block;
     }
-
+    .fortune span{
+      display: inline-block;
+      border-right: 2px solid #000;
+      animation: typing 4s steps(40, end);
+      white-space: nowrap;
+      overflow: hidden;
+    }
     @keyframes typing {
       from { width: 0 }
       to { width: 100% }
@@ -62,7 +68,7 @@
   <div class="ball">
     <img src="wizard.jpeg" alt="Wizard" width="150" />
   </div>
-  <div class="fortune" id="fortune"></div>
+  <div class="fortune" id="fortune"></span></div>
 
   <script>
     const starts = [
@@ -102,8 +108,8 @@
       `${endings[Math.floor(Math.random() * endings.length)]}`;
 
     const fortuneEl = document.getElementById("fortune");
-
     fortuneEl.textContent = fullFortune;
+    
     const charCount = fullFortune.length;
     fortuneEl.style.width = `${charCount}ch`;
     fortuneEl.style.animation = `typing 6s steps(${charCount}, end)`;
