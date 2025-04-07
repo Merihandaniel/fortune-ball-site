@@ -31,6 +31,9 @@
       margin-top: 1rem;
       max-width: 90vw;
       overflow: hidden;
+      padding: 0 1rem;
+      word-wrap: break-word;
+      white-space: normal;
     }
 
     .fortune span {
@@ -103,9 +106,19 @@
       `${endings[Math.floor(Math.random() * endings.length)]}`;
 
     const fortuneSpan = document.getElementById("fortune");
-    fortuneSpan.textContent = fullFortune;
-
-    const charCount = fullFortune.length;
+   /*fortuneSpan.textContent = fullFortune;*/
+    fortuneEl.textContent = "";
+    // Typing effect (mobile friendly, multi-line safe)
+    let i = 0;
+    function typeNext() {
+      if (i < fullFortune.length) {
+        fortuneEl.textContent += fullFortune.charAt(i);
+        i++;
+        setTimeout(typeNext, 50); // adjust speed here
+      }
+    }
+    typeNext();
+    /*const charCount = fullFortune.length;
     fortuneSpan.style.width = `${charCount}ch`;
     fortuneSpan.style.display = "inline-block";
     fortuneSpan.style.whiteSpace = "nowrap";
