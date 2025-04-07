@@ -34,28 +34,12 @@
       transition: opacity 1.5s ease-in;
     }
 
-    .fortune span {
-      display: inline-block;
-      white-space: normal;
-      overflow: hidden;
-      border-right: 2px solid #000;
-    }
-
-    @keyframes typing {
-      from { width: 0 }
-      to { width: 100% }
-    }
-
-    @keyframes blink {
-      50% { border-color: transparent }
-    }
-
     @keyframes pulseGlow {
       0%, 100% {
         filter: drop-shadow(0 0 8px #6a0dad);
       }
       50% {
-        filter: drop-shadow(0 0 20px #6a0dad);7
+        filter: drop-shadow(0 0 20px #6a0dad);
       }
     }
   </style>
@@ -64,7 +48,7 @@
   <div class="ball">
     <img src="wizard.jpeg" alt="Wizard" width="150" />
   </div>
-  <div class="fortune"><span id="fortune"></span></div>
+  <div class="fortune" id="fortune"></div>
 
   <script>
     const starts = [
@@ -105,25 +89,10 @@
 
     const fortuneSpan = document.getElementById("fortune");
     fortuneSpan.textContent = fullFortune;
-    
+
+    // Fade in the text
     requestAnimationFrame(() => {
       fortuneSpan.style.opacity = "1";
-    });
-    // Typing effect (mobile-friendly, wraps after typing)
-    /*const charCount = fullFortune.length;
-    const typingDuration = charCount * 75; // Adjust typing speed (ms per char)
-
-    fortuneSpan.style.width = `${charCount}ch`;
-    fortuneSpan.style.display = "inline-block";
-    fortuneSpan.style.whiteSpace = "nowrap";
-    fortuneSpan.style.animation = `typing ${typingDuration}ms steps(${charCount}, end), blink 0.75s step-end infinite`;
-
-    // After typing completes, clean up and allow wrapping
-    fortuneSpan.addEventListener("animationend", () => {
-      fortuneSpan.style.whiteSpace = "normal";
-      fortuneSpan.style.borderRight = "none";
-      fortuneSpan.style.width = "auto";
-      fortuneSpan.style.animation = "none";
     });
   </script>
 </body>
