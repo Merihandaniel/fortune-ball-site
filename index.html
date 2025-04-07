@@ -14,6 +14,8 @@
       height: 100vh;
       background: #f3f3f3;
       margin: 0;
+      text-align: center;
+      padding: 1rem;
     }
 
     .ball img {
@@ -29,14 +31,14 @@
     .fortune {
       font-size: 1.5rem;
       font-weight: bold;
-      text-align: center;
       white-space: nowrap;
       overflow: hidden;
       border-right: 2px solid #000;
       margin-top: 1rem;
-      max-width: 90vw; 
+      max-width: 90vw;
       box-sizing: border-box;
     }
+
     @keyframes typing {
       from { width: 0 }
       to { width: 100% }
@@ -64,16 +66,18 @@
       "Embrace your chance to",
       "You are about to"
     ];
+
     const actions = [
-      "discover something new. ",
-      "receive unexpected news. ",
-      "meet someone influential. ",
-      "make a bold decision. ",
-      "start a new chapter. ",
-      "change your perspective. ",
-      "find clarity.",
-      "unlock your potential. "
+      "discover something new",
+      "receive unexpected news",
+      "meet someone influential",
+      "make a bold decision",
+      "start a new chapter",
+      "change your perspective",
+      "find clarity",
+      "unlock your potential"
     ];
+
     const endings = [
       "Trust yourself.",
       "Stay open-minded.",
@@ -85,17 +89,15 @@
 
     const fullFortune =
       `${starts[Math.floor(Math.random() * starts.length)]} ` +
-      `${actions[Math.floor(Math.random() * actions.length)]}` +
+      `${actions[Math.floor(Math.random() * actions.length)]}. ` +
       `${endings[Math.floor(Math.random() * endings.length)]}`;
-    
+
     const fortuneEl = document.getElementById("fortune");
     fortuneEl.textContent = fullFortune;
 
-    const maxChars = Math.min(fullFortune.length, 40);
-    fortuneEl.style.width = `${maxChars}ch`;
-    
-    fortuneEl.style.animation = `typing 3s steps(${fullFortune.length}, end), blink 0.75s step-end infinite`;
-   
+    const charCount = Math.min(fullFortune.length, 40);
+    fortuneEl.style.width = `${charCount}ch`;
+    fortuneEl.style.animation = `typing 3s steps(${charCount}, end), blink 0.75s step-end infinite`;
   </script>
 </body>
 </html>
