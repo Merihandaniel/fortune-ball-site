@@ -103,19 +103,10 @@
       `${endings[Math.floor(Math.random() * endings.length)]}`;
 
     const fortuneSpan = document.getElementById("fortune");
-   /*fortuneSpan.textContent = fullFortune;*/
-    fortuneEl.textContent = "";
+   fortuneSpan.textContent = fullFortune;
+    
     // Typing effect (mobile friendly, multi-line safe)
-    let i = 0;
-    function typeNext() {
-      if (i < fullFortune.length) {
-        fortuneEl.textContent += fullFortune.charAt(i);
-        i++;
-        setTimeout(typeNext, 50); // adjust speed here
-      }
-    }
-    typeNext();
-    /*const charCount = fullFortune.length;
+    const charCount = fullFortune.length;
     fortuneSpan.style.width = `${charCount}ch`;
     fortuneSpan.style.display = "inline-block";
     fortuneSpan.style.whiteSpace = "nowrap";
