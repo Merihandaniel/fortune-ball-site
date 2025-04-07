@@ -107,7 +107,20 @@
 
     const charCount = fullFortune.length;
     fortuneSpan.style.width = `${charCount}ch`;
-    fortuneSpan.style.animation = `typing 5s steps(${charCount}, end), blink 0.75s step-end infinite`;
+    fortuneSpan.style.display = "inline-block";
+    fortuneSpan.style.whiteSpace = "nowrap";
+
+// Apply animation
+    fortuneSpan.style.animation = `typing ${charCount * 100}ms steps(${charCount}, end), blink 0.75s step-end infinite`;
+
+// Ensure cleanup happens only after typing truly finishes
+    fortuneSpan.addEventListener("animationend", () => {
+      fortuneSpan.style.whiteSpace = "normal";
+      fortuneSpan.style.borderRight = "none";
+      fortuneSpan.style.width = "auto";
+      fortuneSpan.style.animation = "none";
+    });
+    /*fortuneSpan.style.animation = `typing 5s steps(${charCount}, end), blink 0.75s step-end infinite`;
     
     const typingDuration = charCount * 100; // 100ms per step (adjustable)
     fortuneSpan.style.animation = `typing ${typingDuration}ms steps(${charCount}, end), blink 0.75s step-end infinite`;
@@ -117,7 +130,7 @@
       fortuneSpan.style.borderRight = "none";
       fortuneSpan.style.width = "auto";
       fortuneSpan.style.animation = "none";
-    }, typingDuration);
+    }, typingDuration);*/
   </script>
 </body>
 </html>
