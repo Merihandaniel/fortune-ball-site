@@ -31,12 +31,13 @@
     .fortune {
       font-size: 1.5rem;
       font-weight: bold;
+      text-align: center;
       white-space: nowrap;
       overflow: hidden;
       border-right: 2px solid #000;
       margin-top: 1rem;
-      max-width: 90vw;
       box-sizing: border-box;
+      display: inline-block;
     }
 
     @keyframes typing {
@@ -93,11 +94,18 @@
       `${endings[Math.floor(Math.random() * endings.length)]}`;
 
     const fortuneEl = document.getElementById("fortune");
-    fortuneEl.textContent = fullFortune;
 
-    const charCount = Math.min(fullFortune.length, 40);
+    fortuneEl.textContent = fullFortune;
+    const charCount = fullFortune.length;
     fortuneEl.style.width = `${charCount}ch`;
     fortuneEl.style.animation = `typing 3s steps(${charCount}, end), blink 0.75s step-end infinite`;
+
+    setTimeout(() => {
+      fortuneEl.style.whiteSpace = "normal";
+      fortuneEl.style.borderRight = "none";
+      fortuneEl.style.width = "auto";
+      fortuneEl.style.animation = "none";
+    }, 3000); 
   </script>
 </body>
 </html>
