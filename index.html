@@ -106,21 +106,18 @@
     fortuneSpan.textContent = fullFortune;
     
     // Typing effect (mobile friendly, multi-line safe)
-    /*const charCount = fullFortune.length;
+    const charCount = fullFortune.length;
     fortuneSpan.style.width = `${charCount}ch`;
     fortuneSpan.style.display = "inline-block";
-    fortuneSpan.style.whiteSpace = "nowrap";*/
-    
-    fortuneSpan.style.width = "100%";
-    fortuneSpan.style.animation = `typing 3s steps(${fullFortune.length}, end)`;
+    fortuneSpan.style.whiteSpace = "nowrap";
 // Apply animation
-    /*fortuneSpan.style.animation = `typing ${charCount * 75}ms steps(${charCount}, end), blink 0.75s step-end infinite`;*/
+    fortuneSpan.style.animation = `typing ${charCount * 75}ms steps(${charCount}, end)`;
 
 // Ensure cleanup happens only after typing truly finishes
     fortuneSpan.addEventListener("animationend", () => {
       fortuneSpan.style.whiteSpace = "normal";
       fortuneSpan.style.borderRight = "none";
-      /*fortuneSpan.style.width = "auto";*/
+      fortuneSpan.style.width = "auto";
       fortuneSpan.style.animation = "none";
     });
     /*fortuneSpan.style.animation = `typing 5s steps(${charCount}, end), blink 0.75s step-end infinite`;
