@@ -112,7 +112,7 @@
     fortuneSpan.style.whiteSpace = "nowrap";
 
 // Apply animation
-    fortuneSpan.style.animation = `typing ${charCount * 100}ms steps(${charCount}, end), blink 0.75s step-end infinite`;
+    fortuneSpan.style.animation = `typing ${charCount * 50}ms steps(${charCount}, end), blink 0.75s step-end infinite`;
 
 // Ensure cleanup happens only after typing truly finishes
     fortuneSpan.addEventListener("animationend", () => {
