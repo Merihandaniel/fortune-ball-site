@@ -25,7 +25,8 @@
 
     .ball img:hover {
       filter: drop-shadow(0 0 10px #6a0dad);
-      transform: scale(1.05);
+      transform: scale(1.05)
+      transition: all 0.3s ease;
     }
 
     .fortune {
@@ -34,7 +35,7 @@
       text-align: center;
       white-space: nowrap;
       overflow: hidden;
-      border-right: 2px solid #000;
+      /*border-right: 2px solid #000;*/
       margin-top: 1rem;
       box-sizing: border-box;
       display: inline-block;
@@ -45,9 +46,9 @@
       to { width: 100% }
     }
 
-    @keyframes blink {
+    /*@keyframes blink {
       50% { border-color: transparent }
-    }
+    }*/
   </style>
 </head>
 <body>
@@ -98,7 +99,7 @@
     fortuneEl.textContent = fullFortune;
     const charCount = fullFortune.length;
     fortuneEl.style.width = `${charCount}ch`;
-    fortuneEl.style.animation = `typing 3s steps(${charCount}, end), blink 0.75s step-end infinite`;
+    fortuneEl.style.animation = `typing 3s steps(${charCount}, end)`;
 
     setTimeout(() => {
       fortuneEl.style.whiteSpace = "normal";
