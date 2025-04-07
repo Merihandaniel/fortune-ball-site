@@ -30,7 +30,8 @@
       text-align: center;
       margin-top: 1rem;
       max-width: 90vw;
-      overflow: break-word;
+      opacity: 0;
+      transition: opacity 1.5s ease-in;
     }
 
     .fortune span {
@@ -104,9 +105,12 @@
 
     const fortuneSpan = document.getElementById("fortune");
     fortuneSpan.textContent = fullFortune;
-
+    
+    requestAnimationFrame(() => {
+      fortuneEl.style.opacity = "1";
+    });
     // Typing effect (mobile-friendly, wraps after typing)
-    const charCount = fullFortune.length;
+    /*const charCount = fullFortune.length;
     const typingDuration = charCount * 75; // Adjust typing speed (ms per char)
 
     fortuneSpan.style.width = `${charCount}ch`;
